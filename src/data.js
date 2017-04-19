@@ -11,9 +11,8 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 const data = {
   menus: [
     { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
-    { text: 'Form Page', icon: <Web/>, link: '/form' },
-    { text: 'Table Page', icon: <GridOn/>, link: '/table' },
-    { text: 'Login Page', icon: <PermIdentity/>, link: '/login' }
+    { text: 'Table', icon: <Web/>, link: '/table' },
+    { text: 'Chart', icon: <GridOn/>, link: '/chart' }
   ],
   tablePage: {
     items: [
@@ -58,9 +57,9 @@ const data = {
       {pv: 4300}
     ],
     browserUsage: [
-      {name: 'Chrome', value: 800, color: cyan600, icon: <ExpandMore/>},
-      {name: 'Firefox', value: 300, color: pink600, icon: <ChevronRight/>},
-      {name: 'Safari', value: 300, color: purple600, icon: <ExpandLess/>}
+      {name: 'Total', value: 800, color: cyan600, icon: <ExpandMore/>},
+      {name: 'Placed', value: 300, color: pink600, icon: <ChevronRight/>},
+      {name: 'Executed', value: 300, color: purple600, icon: <ExpandLess/>}
     ]
   }
 };

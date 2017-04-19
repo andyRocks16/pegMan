@@ -19,11 +19,6 @@ const store = configureStore();
 
 render(
     <Provider store={store}>
-    <Router history={browserHistory}>
-        <Router path="/" component={MainApp}>
-            <IndexRoute component={LoginPage}>
-            </IndexRoute>
-        </Router>
-    </Router>
+        <Router routes={routes} history={browserHistory} />
 </Provider>, document.getElementById('app')
 );

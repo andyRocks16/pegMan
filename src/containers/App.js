@@ -21,6 +21,10 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    this.props.fetchData('http://localhost:8080/orders');
+  }
+
   handleChangeRequestNavDrawer() {
     this.setState({
       navDrawerOpen: !this.state.navDrawerOpen
@@ -43,7 +47,8 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider muiTheme={ThemeDefault}>
-        <div>
+        {this.props.loadHeader ? 
+          <div>
           <Header styles={styles.header}
                   handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}/>
 
@@ -54,7 +59,11 @@ class App extends React.Component {
             <div style={styles.container}>
               {React.cloneElement(this.props.children,this.props)}
             </div>
-        </div>
+        </div> : 
+            <div>
+              {React.cloneElement(this.props.children,this.props)}
+            </div>
+        }
       </MuiThemeProvider>
     );
   }

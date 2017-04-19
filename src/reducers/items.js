@@ -21,6 +21,18 @@ export function itemsIsLoading(state = false, action) {
 }
 
 
+export function loadHeader(state = false, action) {
+    switch (action.type) {
+        case 'LOAD':
+            return true;
+        case 'NOT_LOAD' :
+            return false;
+
+        default:
+            return state;
+    }
+}
+
 export function notifications(state = [], action = {}) {
   switch(action.type) {
     case "RNS_SHOW_NOTIFICATION":

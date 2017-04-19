@@ -67,6 +67,10 @@ class LoginPage extends React.Component {
     this.Listener();
   }
 
+  allowHeader(){
+    this.props.change("LOAD");
+  }
+
   render() {
     var users = this.props.users.map((user) => {
       return (
@@ -100,8 +104,8 @@ class LoginPage extends React.Component {
                     </div>
 
                   </div>
-                  <Link to={`/users`}>
-                    <input type="submit" value="Login" className="girisbtn" tabindex="100" />
+                  <Link to={`/dashboard`}>
+                    <input type="submit" value="Login" onClick={this.allowHeader.bind(this)} className="girisbtn" tabindex="100" />
                   </Link>
                 </form>
 

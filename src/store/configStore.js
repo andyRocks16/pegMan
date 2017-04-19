@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { connect } from 'react-redux';
 import rootReducer from '../reducers/index';
-import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, searchItems, updateSearch, notify,success } from '../actions/items';
+import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success } from '../actions/items';
 import {usersFetchData,UsersLoginId} from '../actions/user';
 import App  from '../containers/App';
 import '../styles/css/style.css';
@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
     
     return {
         users: state.users,
+        loadHeader : state.loadHeader || false,
         loginId: state.loginId,
         orders:state.orders,
         items: state.items,
@@ -43,7 +44,8 @@ const mapDispatchToProps = (dispatch) => {
         searchOrders: (key, criteria, items) => dispatch(searchItems(key, criteria, items)),
         notify: (notificationMsg, notifications) => dispatch(notify(notificationMsg, notifications)),
         success: (opts) => dispatch(success(opts)),                                                      
-        deleteOrder: (url) => dispatch(deleteOrders(url)),  
+        deleteOrder: (url) => dispatch(deleteOrders(url)), 
+        change: (type) => dispatch(change(type)), 
         updateOrder: (msg, orders, newOrder) => {
             
             return dispatch(updateOrder(msg, orders, newOrder))}                                         

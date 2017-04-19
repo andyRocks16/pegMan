@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { items, itemsHasErrored, itemsIsLoading,stocks,orders, searchResults, notifications, notificationMsg } from './items';
+import { items, itemsHasErrored, itemsIsLoading,stocks,orders, searchResults, notifications, notificationMsg, loadHeader } from './items';
 import { users, usersHasErrored, usersIsLoading,loginId } from './user';
 
 export default combineReducers({
@@ -14,5 +14,6 @@ export default combineReducers({
     loginId,
     searchResults,
     notifications,
-    notificationMsg
+    notificationMsg,
+    loadHeader
 });

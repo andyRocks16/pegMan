@@ -12,32 +12,32 @@ const LeftDrawer = (props) => {
   const styles = {
     logo: {
       cursor: 'pointer',
-      fontSize: 22,
+      fontSize: '22px',
       color: typography.textFullWhite,
       lineHeight: `${spacing.desktopKeylineIncrement}px`,
       fontWeight: typography.fontWeightLight,
       backgroundColor: blue600,
-      paddingLeft: 40,
-      height: 56,
+      paddingLeft: '40px',
+      height: '56px',
     },
     menuItem: {
       color: white,
-      fontSize: 14
+      fontSize: '14px'
     },
     avatar: {
       div: {
         padding: '15px 0 20px 15px',
         backgroundImage:  'url(' + require('../images/material_bg.png') + ')',
-        height: 45
+        height: '70px'
       },
       icon: {
         float: 'left',
         display: 'block',
-        marginRight: 15,
+        marginRight: '15px',
         boxShadow: '0px 0px 0px 8px rgba(0,0,0,0.2)'
       },
       span: {
-        paddingTop: 12,
+        paddingTop: '12px',
         display: 'block',
         color: 'white',
         fontWeight: 300,

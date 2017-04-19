@@ -186,3 +186,10 @@ export function hide(uid) {
     uid
   };
 }
+
+export function change(type) {
+    return {
+        type
+    };
+}
+
