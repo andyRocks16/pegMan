@@ -12,7 +12,7 @@ import OrderDetails from '../components/dashboard/RecentlyProducts';
 import globalStyles from '../styles';
 import Data from '../data';
 
-class DashboardPage extends React.Component {
+export default class DashboardPage extends React.Component {
   constructor(props){
     super(props);
     
@@ -27,11 +27,13 @@ class DashboardPage extends React.Component {
 	}
   render() {
     console.log(this.props)
-    return (
-      <div>
-        <h3 style={globalStyles.navigation}>Application / Dashboard</h3>
 
-        <div className="row">
+      return (
+        <div>
+          <h3 style={globalStyles.navigation}>Application / Dashboard</h3>
+
+          <div className="row">
+
 
          <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 " > 
             <InfoBox Icon={NoteAdd}
@@ -88,5 +90,26 @@ class DashboardPage extends React.Component {
 
 }
 
+//          <div className="row">
+//            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
+//              <NewOrders data={Data.dashBoardPage.newOrders}/>
+//            </div>
 
-export default DashboardPage;
+//            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15">
+//              <MonthlySales data={Data.dashBoardPage.monthlySales}/>
+//            </div>
+//          </div>
+
+//          <div className="row">
+//            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+//              <RecentlyProducts data={Data.dashBoardPage.recentProducts}/>
+//            </div>
+
+//            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+//              <BrowserUsage data={Data.dashBoardPage.browserUsage}/>
+//            </div>
+//          </div>
+//        </div>
+//      );
+//    };
+//}

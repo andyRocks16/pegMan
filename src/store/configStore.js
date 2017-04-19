@@ -6,7 +6,8 @@ import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,
 import {usersFetchData,UsersLoginId} from '../actions/user';
 import App  from '../containers/App';
 import '../styles/css/style.css';
-
+import styles from '../styles'
+import  '../styles.scss'
 export function configureStore(initialState) {
     return createStore(
         rootReducer,

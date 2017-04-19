@@ -7,28 +7,37 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
+import Badge from 'material-ui/Badge';
 import SearchBox from './SearchBox';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
+import {NotificationComponent} from './Trader/Utilities/NotificationComponent';
 
 class Header extends React.Component {
 
-  render() {
-    const {styles, handleChangeRequestNavDrawer} = this.props;
-
-    const style = {
-      appBar: {
-        position: 'fixed',
-        top: 0,
-        overflow: 'hidden',
-        maxHeight: 57
-      },
-      menuButton: {
-        marginLeft: 10
-      },
-      iconsRightContainer: {
-        marginLeft: 20
-      }
-    };
-
+    render() {
+        const {styles, handleChangeRequestNavDrawer} = this.props;
+        console.log(this.props);
+        const style = {
+            appBar: {
+                position: 'fixed',
+                top: 0,
+                overflow: 'hidden',
+                maxHeight: 57
+            },
+            menuButton: {
+                marginLeft: 10
+            },
+            iconsRightContainer: {
+                marginLeft: 20
+            }
+        };
+       var notifications=this.props.notificationMsg.map((item, index) => {
+            return (<MenuItem key={index} primaryText={item}/>);
+            })
+                var number =this.props.notificationMsg.length;
+                if(number>10){
+                    number='10+'
+                }
     return (
         <div>
             <AppBar
@@ -45,14 +54,21 @@ class Header extends React.Component {
                 <div style={style.iconsRightContainer}>
                   <IconMenu color={white}
                             iconButtonElement={
-                              <IconButton><ViewModule color={white}/></IconButton>
+                              <Badge
+              badgeContent={number}
+              secondary={true}
+              badgeStyle={{top: 0, right: 0}}
+              style={{paddingTop:0,paddingRight:0,paddingLeft:0,paddingBottom:0}}
+    >
+      <IconButton tooltip="Notifications">
+        <NotificationsIcon color={white} />
+      </IconButton>
+    </Badge>
                             }
                             targetOrigin={{horizontal: 'right', vertical: 'top'}}
                             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                   >
-                    <MenuItem key={1} primaryText="Application 1"/>
-                    <MenuItem key={2} primaryText="Application 2"/>
-                    <MenuItem key={3} primaryText="Application 3"/>
+                        {notifications}
                   </IconMenu>
                   <IconMenu color={white}
                             iconButtonElement={
@@ -63,6 +79,7 @@ class Header extends React.Component {
                   >
                     <MenuItem primaryText="Sign out"/>
                   </IconMenu>
+
                 </div>
               }
             />
