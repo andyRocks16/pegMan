@@ -8,8 +8,11 @@ import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 import Data from '../data';
 
-const TablePage = () => {
-
+class TablePage extends React.Component{
+  constructor(props){
+    super(props);
+  }
+render(){
   const styles = {
     floatingActionButton: {
       margin: 0,
@@ -19,28 +22,42 @@ const TablePage = () => {
       left: 'auto',
       position: 'fixed',
     },
-    editButton: {
-      fill: grey500
-    },
     columns: {
       id: {
-        width: '10%'
+        width: '9.1%'
       },
-      name: {
-        width: '40%'
+      time: {
+        width: '9.1%'
+      },
+      side: {
+        width: '9.1%'
+      },
+      symbol: {
+        width: '9.1%'
+      },
+      quantiy: {
+        width: '9.1%'
+      },
+      placed: {
+        width: '9.1%'
+      },
+      executed: {
+        width: '9.1%'
       },
       price: {
-        width: '20%'
+        width: '9.1%'
       },
-      category: {
-        width: '20%'
+      priority: {
+        width: '9.1%'
       },
-      edit: {
-        width: '10%'
+      status: {
+        width: '9.1%'
+      },
+      trader: {
+        width: '9.1%'
       }
     }
   };
-
   return (
     <PageBase title="Table Page"
               navigation="Application / Table Page">
@@ -53,32 +70,36 @@ const TablePage = () => {
         </Link>
 
         <Table>
-          <TableHeader>
+          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
             <TableRow>
               <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.name}>Name</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.time}>Time</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.side}>Side</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.symbol}>Symbol</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.quantiy}>Quantity</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.placed}>Placed</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.executed}>Executed</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.price}>Price</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.category}>Category</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.edit}>Edit</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.priority}>Priority</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.status}>Status</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.trader}>Trader</TableHeaderColumn>
+              
             </TableRow>
           </TableHeader>
-          <TableBody>
-            {Data.tablePage.items.map(item =>
+          <TableBody displayRowCheckbox={false}>
+            {this.props.items.map(item =>
               <TableRow key={item.id}>
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                <TableRowColumn style={styles.columns.name}>{item.name}</TableRowColumn>
-                <TableRowColumn style={styles.columns.price}>{item.price}</TableRowColumn>
-                <TableRowColumn style={styles.columns.category}>{item.category}</TableRowColumn>
-                <TableRowColumn style={styles.columns.edit}>
-                  <Link className="button" to="/form">
-                    <FloatingActionButton zDepth={0}
-                                          mini={true}
-                                          backgroundColor={grey200}
-                                          iconStyle={styles.editButton}>
-                      <ContentCreate  />
-                    </FloatingActionButton>
-                  </Link>
-                </TableRowColumn>
+                <TableRowColumn style={styles.columns.time}>{item.creationTime}</TableRowColumn>
+                <TableRowColumn style={styles.columns.side}>{item.side}</TableRowColumn>
+                <TableRowColumn style={styles.columns.symbol}>{item.symbol}</TableRowColumn>
+                <TableRowColumn style={styles.columns.quantiy}>{item.quantity}</TableRowColumn>
+                <TableRowColumn style={styles.columns.placed}>{item.quantityPlaced}</TableRowColumn>
+                <TableRowColumn style={styles.columns.executed}>{item.quantityExecuted}</TableRowColumn>
+                <TableRowColumn style={styles.columns.price}>{item.limitPrice}</TableRowColumn>
+                <TableRowColumn style={styles.columns.priority}>{item.priority}</TableRowColumn>
+                <TableRowColumn style={styles.columns.status}>{item.status}</TableRowColumn>
+                <TableRowColumn style={styles.columns.trader}>{item.traderId}</TableRowColumn>
               </TableRow>
             )}
           </TableBody>
@@ -87,5 +108,11 @@ const TablePage = () => {
     </PageBase>
   );
 };
+  
+}
+
+  
+
+  
 
 export default TablePage;
