@@ -22,6 +22,11 @@ class App extends React.Component {
     };
   }
 
+  componentWillMount(){
+    this.props.openDialogue(false);
+    this.props.openModal(false);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.width !== nextProps.width) {
       this.setState({ navDrawerOpen: nextProps.width === LARGE });

@@ -7,15 +7,26 @@ class InfoBox extends React.Component {
   constructor(props){
     super(props)
   }
+  deleteAllOrders() {
+    console.log("in delter");
+		this.props.deleteOrder("http://localhost:8080/orders")
+	}
 
+	refershOrders() {
+		this.props.fetchData("http://localhost:8080/orders");
+	}
   render() {
 
-    var paperSettings = {
-  clickable     : true,
-  liftOnHover   : true,
-  liftOnClick   : true,
-  zDepth        : 1
-}
+//     var paperSettings = {
+//   overlayColor  : undefined,
+//   burstSpeed    : 2000,
+//   burstColor    : undefined,
+//   clickable     : true,
+//   liftOnHover   : true,
+//   liftOnClick   : true,
+//   zDepth        : 3,
+//   zoom: true
+// }
     const {color, title, value, Icon} = this.props;
 
     const styles = {
@@ -52,7 +63,7 @@ class InfoBox extends React.Component {
     };
 
     return (
-      <Paper settings={paperSettings}>
+      <Paper >
         <span style={styles.iconSpan}>
           <Icon color={white}
                 style={styles.icon}

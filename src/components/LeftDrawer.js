@@ -51,6 +51,7 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
+
           Trader Desktop
         </div>
         <div style={styles.avatar.div}>

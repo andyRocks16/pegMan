@@ -118,7 +118,8 @@ class ChartPage extends React.Component {
     }
     width = this.p;
     return (
-      <PageBase title="Order Stats">
+      <PageBase title="Chart Page"
+        navigation="Application / Chart Page">
         <div>
           <div className="col-xs-5 col-xs-offset-5  hidden-md hidden-lg hidden-xl ">
             <Legend width={widthLg} height={height} legendClassName={legendClassName} legendPosition={legendPosition}

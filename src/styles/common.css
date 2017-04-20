@@ -309,3 +309,8 @@ tr {
 .ordersTable{
     margin-top: 50px;
 }
+
+.animate:hover{
+ transform: scale(1.1);
+ cursor:pointer;
+}

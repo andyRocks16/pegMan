@@ -70,10 +70,10 @@ export default class PopUpComponent extends React.Component {
                             open={this.props.open}
                           >
                           <TextField
-                            hintText="Hint Text"
+                            hintText="Number"
                             ref = "tradeInput"
                             type = "number"
-                            floatingLabelText="Enter the nmber of orders"
+                            floatingLabelText="Enter the number of orders"
                             floatingLabelFixed={false}
                           />
                           </Dialog>

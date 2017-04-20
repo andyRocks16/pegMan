@@ -23,6 +23,14 @@ export function openModal(bool) {
         open: bool
     };
 }
+export function openDialogue(bool) {
+    console.log('insider reducer dialogue')
+    
+    return {
+        type: 'OPEN_DIALOGUE',
+        openD: bool
+    };
+}
 
 export function itemsFetchDataSuccess(items) {
     return {

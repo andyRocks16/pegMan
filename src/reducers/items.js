@@ -30,6 +30,16 @@ export function openModal(state = false, action) {
             return state;
     }
 }
+export function openDialogue(state = false, action) {
+    console.log(state,'openDialog')
+    switch (action.type) {
+        case 'OPEN_DIALOGUE':
+            return action.openD;
+
+        default:
+            return state;
+    }
+}
 export function loadHeader(state = false, action) {
     switch (action.type) {
         case 'LOAD':
