@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { items, itemsHasErrored, itemsIsLoading,stocks,orders, searchResults, notifications, notificationMsg, loadHeader } from './items';
+import { items, itemsHasErrored, itemsIsLoading,stocks,orders, searchResults, notifications, notificationMsg, loadHeader ,openModal } from './items';
 import { users, usersHasErrored, usersIsLoading,loginId } from './user';
 
 export default combineReducers({
@@ -15,5 +15,6 @@ export default combineReducers({
     searchResults,
     notifications,
     notificationMsg,
-    loadHeader
+    loadHeader,
+    openModal
 });

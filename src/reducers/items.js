@@ -21,6 +21,15 @@ export function itemsIsLoading(state = false, action) {
 }
 
 
+export function openModal(state = false, action) {
+    switch (action.type) {
+        case 'OPEN_MODAL':
+            return action.open;
+
+        default:
+            return state;
+    }
+}
 export function loadHeader(state = false, action) {
     switch (action.type) {
         case 'LOAD':

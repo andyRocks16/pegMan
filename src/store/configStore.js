@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { connect } from 'react-redux';
 import rootReducer from '../reducers/index';
-import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success } from '../actions/items';
+import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success,openModal } from '../actions/items';
 import {usersFetchData,UsersLoginId} from '../actions/user';
 import App  from '../containers/App';
 import '../styles/css/style.css';
@@ -19,6 +19,7 @@ export function configureStore(initialState) {
 const mapStateToProps = (state) => {
     
     return {
+        open:state.openModal,
         users: state.users,
         loadHeader : state.loadHeader || false,
         loginId: state.loginId,
@@ -35,6 +36,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        openModal:(bool)=>dispatch(openModal(bool)),
         fetchData: (url) => dispatch(itemsFetchData(url)),
         fetchStocks:(url) => dispatch(stockFetchData(url)),
         makeOrders:(url,data) => dispatch(orderPostData(url,data)),

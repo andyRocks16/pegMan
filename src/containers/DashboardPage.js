@@ -12,9 +12,12 @@ import OrderDetails from '../components/dashboard/RecentlyProducts';
 import globalStyles from '../styles';
 import Data from '../data';
 
+import PopUpComponent from '../components/Trader/Utilities/PopUpComponent'
+
 export default class DashboardPage extends React.Component {
   constructor(props){
-    super(props);
+      super(props);
+    
     
   }
     deleteAllOrders() {
@@ -25,6 +28,10 @@ export default class DashboardPage extends React.Component {
 	refershOrders() {
 		this.props.fetchData("http://localhost:8080/orders");
 	}
+	handleOpen = () => {
+        console.log('inside open')
+        this.props.openModal(true);
+	};
   render() {
     console.log(this.props)
 
@@ -35,16 +42,16 @@ export default class DashboardPage extends React.Component {
           <div className="row">
 
 
-         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 " > 
+         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 " onClick ={this.handleOpen} > 
             <InfoBox Icon={NoteAdd}
               color={pink600}
               title="Create Trades"
             />
           </div>
-
+          <PopUpComponent {...this.props}></PopUpComponent>
 
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 " onClick ={this.deleteAllOrders.bind(this)} >
-            <InfoBox Icon={Delete} {...this.props}
+            <InfoBox Icon={Delete} {...this.props } 
               color={cyan600}
               title="Delete"
             />

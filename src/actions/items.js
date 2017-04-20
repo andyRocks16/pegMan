@@ -15,6 +15,14 @@ export function itemsIsLoading(bool) {
         isLoading: bool
     };
 }
+export function openModal(bool) {
+    console.log('insider reducer openModal')
+    
+    return {
+        type: 'OPEN_MODAL',
+        open: bool
+    };
+}
 
 export function itemsFetchDataSuccess(items) {
     return {
