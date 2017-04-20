@@ -122,6 +122,7 @@ export function searchResults(state = [], actions) {
             });
             return newOrder;
         case 'SEARCH_DATA_ID':
+            console.log(actions)
             actions.items.map((item, index) => {
                 if (item.id.toString().indexOf(actions.key) != -1) {
                     newOrder.push(item);

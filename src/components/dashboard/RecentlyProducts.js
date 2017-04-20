@@ -17,7 +17,13 @@ class OrderDetails extends React.Component {
     super(props);
   }
   render() {
-    let data=[];
+    var paperSettings = {
+      clickable: true,
+      liftOnHover: true,
+      liftOnClick: true,
+      zDepth: 1
+    }
+    let data = [];
     if (typeof this.props.items !== 'undefined' && this.props.items.length > 0) {
       data = this.props.items.slice(0, 4);
     }
@@ -46,7 +52,7 @@ class OrderDetails extends React.Component {
     );
     console.log(this.props, 'aklfhashfa');
     return (
-      <Paper>
+      <Paper settings={paperSettings}>
         <List>
           <Subheader style={styles.subheader}>Order Details</Subheader>
           {

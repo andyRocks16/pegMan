@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
-import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
@@ -22,11 +22,18 @@ const BrowserUsage = (props) => {
     }
   };
 
+  var paperSettings = {
+    clickable: true,
+    liftOnHover: true,
+    liftOnClick: true,
+    zDepth: 1
+  }
+
   return (
-    <Paper style={styles.paper}>
+    <Paper style={styles.paper} settings={paperSettings}>
       <span style={GlobalStyles.title}>Order Stats</span>
 
-      <div style={GlobalStyles.clear}/>
+      <div style={GlobalStyles.clear} />
 
       <div className="row">
 
@@ -40,7 +47,7 @@ const BrowserUsage = (props) => {
                   data={props.data}
                   fill="#8884d8">
                   {
-                    props.data.map((item) => <Cell key={item.name} fill={item.color}/>)
+                    props.data.map((item) => <Cell key={item.name} fill={item.color} />)
                   }
                 </Pie>
               </PieChart>
@@ -57,7 +64,7 @@ const BrowserUsage = (props) => {
                     key={item.name}
                     leftAvatar={
                       <Avatar icon={item.icon}
-                              backgroundColor={item.color}/>
+                        backgroundColor={item.color} />
                     }>
                     {item.name}
                   </ListItem>
