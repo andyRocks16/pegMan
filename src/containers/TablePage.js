@@ -84,12 +84,6 @@ class TablePage extends React.Component {
         },
         trader: {
           width: '9.1%'
-        },
-        search: {
-          width: "70%"
-        },
-        select: {
-          width: "30%"
         }
       }
     };
@@ -109,10 +103,10 @@ class TablePage extends React.Component {
           <Table selectable={false}>
             <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
               <TableRow>
-                <TableRowColumn colSpan="7" style={styles.columns.search}>
+                <TableRowColumn colSpan="7">
                   <input onChange={this.searchItems.bind(this)} type="text" className="form-control" id="search" placeholder="Search...." />
                 </TableRowColumn>
-                <TableRowColumn colSpan="4" style={styles.columns.select}>
+                <TableRowColumn colSpan="4">
                   <select ref="criteria" className="form-control" id="sel1">
                     <option>Search By</option>
                     <option value="ID">ID</option>

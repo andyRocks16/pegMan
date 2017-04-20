@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { connect } from 'react-redux';
 import rootReducer from '../reducers/index';
 
-import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success,openModal,openDialogue } from '../actions/items';
+import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success,openModal,openDialogue, warning, info } from '../actions/items';
 
 import {usersFetchData,UsersLoginId, RemoveUser} from '../actions/user';
 import App  from '../containers/App';
