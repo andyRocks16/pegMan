@@ -37,7 +37,6 @@ export default class DashboardPage extends React.Component {
 
     return (
       <div>
-        <h3 style={globalStyles.navigation}>Application / Dashboard</h3>
 
         <div className="row">
 

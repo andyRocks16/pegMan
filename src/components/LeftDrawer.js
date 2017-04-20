@@ -51,13 +51,13 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Material Admin
+          Trader Desktop
         </div>
         <div style={styles.avatar.div}>
           <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"
                   size={50}
                   style={styles.avatar.icon}/>
-          <span style={styles.avatar.span}>{props.username}</span>
+          <span style={styles.avatar.span}>{props.loginId.name}</span>
         </div>
         <div>
           {props.menus.map((menu, index) =>

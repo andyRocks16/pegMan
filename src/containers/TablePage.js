@@ -95,8 +95,7 @@ class TablePage extends React.Component {
     };
    
     return (
-      <PageBase title="Table Page"
-        navigation="Application / Table Page">
+      <PageBase title="Orders">
         <div>
           <Table selectable={false}>
             <TableHeader displaySelectAll={false} adjustForCheckbox={false}>

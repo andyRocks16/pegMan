@@ -51,9 +51,7 @@ class Header extends React.Component {
       <div>
         <AppBar
           style={{ ...styles, ...style.appBar }}
-          title={
-            <SearchBox />
-          }
+          
           iconElementLeft={
             <IconButton style={style.menuButton} onClick={handleChangeRequestNavDrawer}>
               <Menu color={white} />

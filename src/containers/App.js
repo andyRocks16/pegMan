@@ -123,7 +123,7 @@ class App extends React.Component {
 
             <LeftDrawer navDrawerOpen={navDrawerOpen}
                         menus={Data.menus}
-                        username="User Admin"/>
+                        username="User Admin" {...this.props}/>
                       
             <div style={styles.container}>
               {React.cloneElement(this.props.children,this.props)}
