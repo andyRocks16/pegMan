@@ -1,9 +1,6 @@
 body {
     font-size: 12px;
-    max-width: 10000px;
     background: #F5F5F5;
-    min-width: 960px;
-    width: 100%;
     font-family: Roboto;
     text-rendering: optimizeLegibility;
  /* 2 */
@@ -24,9 +21,6 @@ p {
 
 .fullwidth,
 body#bp-default #wp-admin-bar .padder {
-    width: 100% !important;
-    max-width: 10000px !important;
-    min-width: 960px;
     margin: 0 auto;
     clear: both;
     float: left;

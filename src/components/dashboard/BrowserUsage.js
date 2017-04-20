@@ -10,14 +10,14 @@ const BrowserUsage = (props) => {
 
   const styles = {
     paper: {
-      minHeight: 344,
-      padding: 10
+      minHeight: '344px',
+      padding: '10px'
     },
     legend: {
-      paddingTop: 20,
+      paddingTop: '20px',
     },
     pieChartDiv: {
-      height: 290,
+      height: '290px',
       textAlign: 'center'
     }
   };

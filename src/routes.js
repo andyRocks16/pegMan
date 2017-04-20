@@ -6,6 +6,8 @@ import LoginPage from './containers/LoginPage';
 import ChartPage from './containers/ChartPage';
 import TablePage from './containers/TablePage';
 import Dashboard from './containers/DashboardPage';
+import PopUpComponent from './components/Trader/Utilities/PopUpComponent';
+
 import { Router } from 'react-router';
 
 export default (
@@ -15,6 +17,7 @@ export default (
       <Router path="dashboard" component={Dashboard} />
       <Router path="chart" component={ChartPage} />
       <Router path="table" component={TablePage} />
+      <Router path="create" component={PopUpComponent} />
       <Router path="*" component={NotFoundPage} />
     </Router>
   </Router>

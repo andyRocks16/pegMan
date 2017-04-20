@@ -7,6 +7,7 @@ import ContentCreate from 'material-ui/svg-icons/content/create';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { pink500, grey200, grey500 } from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
+import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
 import Data from '../data';
 
 class TablePage extends React.Component {
@@ -18,7 +19,8 @@ class TablePage extends React.Component {
   }
 
   componentWillMount(){
-    this.setState({loadItems: true})
+    this.setState({loadItems: true});
+    this.props.openModal(false);
   }
 
   searchItems(event) {
@@ -50,41 +52,6 @@ class TablePage extends React.Component {
         bottom: 20,
         left: 'auto',
         position: 'fixed',
-      },
-      columns: {
-        id: {
-          width: '9.1%'
-        },
-        time: {
-          width: '9.1%'
-        },
-        side: {
-          width: '9.1%'
-        },
-        symbol: {
-          width: '9.1%'
-        },
-        quantiy: {
-          width: '9.1%'
-        },
-        placed: {
-          width: '9.1%'
-        },
-        executed: {
-          width: '9.1%'
-        },
-        price: {
-          width: '9.1%'
-        },
-        priority: {
-          width: '9.1%'
-        },
-        status: {
-          width: '9.1%'
-        },
-        trader: {
-          width: '9.1%'
-        }
       }
     };
     
@@ -100,13 +67,19 @@ class TablePage extends React.Component {
     return (
       <PageBase title="Orders">
         <div>
+          
+          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick = {this.props.openModal(true)}>
+            <ContentAdd/>
+          </FloatingActionButton>
+        <PopUpComponent {...this.props}/>
           <Table selectable={false}>
             <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
               <TableRow>
                 <TableRowColumn colSpan="7">
                   <input onChange={this.searchItems.bind(this)} type="text" className="form-control" id="search" placeholder="Search...." />
                 </TableRowColumn>
-                <TableRowColumn colSpan="4">
+                <TableRowColumn colSpan="4" >
+
                   <select ref="criteria" className="form-control" id="sel1">
                     <option>Search By</option>
                     <option value="ID">ID</option>
@@ -120,33 +93,33 @@ class TablePage extends React.Component {
                 </TableRowColumn>
               </TableRow>
               <TableRow>
-                <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.time}>Time</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.side}>Side</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.symbol}>Symbol</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.quantiy}>Quantity</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.placed}>Placed</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.executed}>Executed</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.price}>Price</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.priority}>Priority</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.status}>Status</TableHeaderColumn>
-                <TableHeaderColumn style={styles.columns.trader}>Trader</TableHeaderColumn>
+                <TableHeaderColumn >ID</TableHeaderColumn>
+                <TableHeaderColumn >Time</TableHeaderColumn>
+                <TableHeaderColumn >Side</TableHeaderColumn>
+                <TableHeaderColumn >Symbol</TableHeaderColumn>
+                <TableHeaderColumn >Quantity</TableHeaderColumn>
+                <TableHeaderColumn >Placed</TableHeaderColumn>
+                <TableHeaderColumn >Executed</TableHeaderColumn>
+                <TableHeaderColumn >Price</TableHeaderColumn>
+                <TableHeaderColumn >Priority</TableHeaderColumn>
+                <TableHeaderColumn >Status</TableHeaderColumn>
+                <TableHeaderColumn >Trader</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody displayRowCheckbox={false}>
               {data.map(item =>
                 <TableRow key={item.id}>
-                  <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.time}>{item.creationTime}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.side}>{item.side}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.symbol}>{item.symbol}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.quantiy}>{item.quantity}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.placed}>{item.quantityPlaced}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.executed}>{item.quantityExecuted}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.price}>{item.limitPrice}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.priority}>{item.priority}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.status}>{item.status}</TableRowColumn>
-                  <TableRowColumn style={styles.columns.trader}>{item.traderId}</TableRowColumn>
+                  <TableRowColumn >{item.id}</TableRowColumn>
+                  <TableRowColumn >{item.creationTime}</TableRowColumn>
+                  <TableRowColumn >{item.side}</TableRowColumn>
+                  <TableRowColumn >{item.symbol}</TableRowColumn>
+                  <TableRowColumn >{item.quantity}</TableRowColumn>
+                  <TableRowColumn >{item.quantityPlaced}</TableRowColumn>
+                  <TableRowColumn >{item.quantityExecuted}</TableRowColumn>
+                  <TableRowColumn >{item.limitPrice}</TableRowColumn>
+                  <TableRowColumn >{item.priority}</TableRowColumn>
+                  <TableRowColumn >{item.status}</TableRowColumn>
+                  <TableRowColumn >{item.traderId}</TableRowColumn>
                 </TableRow>
               )}
             </TableBody>
