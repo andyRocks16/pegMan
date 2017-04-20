@@ -140,7 +140,6 @@ class App extends React.Component {
         return (<NotificationComponent {...this.props} />);
       })
     }
-    console.log(this.props.notificationMsg);
 
     return (
       <div>

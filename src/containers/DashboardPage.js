@@ -19,11 +19,9 @@ export default class DashboardPage extends React.Component {
 
   constructor(props) {
     super(props);
-
-
   }
+
   deleteAllOrders() {
-    console.log("in delter");
     this.props.deleteOrder("http://localhost:8080/orders")
   }
 
@@ -40,8 +38,14 @@ dialogueOpen = () => {
   
 
   render() {
-    console.log(this.props)
 
+    if (typeof this.props.loginId.id == "undefined") {
+      return (<div>
+        <h1>PLEASE LOGIN</h1>
+        <br />
+        <h3>click <Link to="/"><a href="">here</a></Link></h3>
+      </div>)
+    }
     return (
       <div>
 
@@ -104,4 +108,3 @@ dialogueOpen = () => {
   };
 
 }
-

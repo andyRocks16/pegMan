@@ -37,7 +37,6 @@ class LoginPage extends React.Component {
     firebaseAuth().signInWithEmailAndPassword(email, password + "@123").then(function (user) {
 
       users = user;
-      cookie.save('userDetails', user.uid, { path: '/' });
       browserHistory.push('/');
     }).catch(function (error) {
       // Handle Errors here.
@@ -47,12 +46,13 @@ class LoginPage extends React.Component {
       // ...
     });
     this.setState({ loadScreen: true });
-    console.log(selectedUser, "user logged in")
     this.props.getUser(selectedUser);
     this.props.change("LOAD");
 
   }
   componentWillMount = () => {
+    this.props.getUser(null);
+    console.log(this.props)
     this.props.change("NOT_LOAD");
     this.Listener = firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
@@ -71,6 +71,7 @@ class LoginPage extends React.Component {
   }
 
   render() {
+
     var users = this.props.users.map((user) => {
       return (
         <option id="traderList" key={user.id} value={user.id}>{user.name}</option>

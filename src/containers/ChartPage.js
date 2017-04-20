@@ -117,6 +117,16 @@ class ChartPage extends React.Component {
       this.p = window.innerWidth - 10;
     }
     width = this.p;
+
+    
+    if (typeof this.props.loginId.id == "undefined") {
+      return (<div>
+        <h1>PLEASE LOGIN</h1>
+        <br />
+        <h3>click <Link to="/"><a href="">here</a></Link></h3>
+      </div>)
+    }
+    
     return (
       <PageBase title="Chart Page"
         navigation="Application / Chart Page">
