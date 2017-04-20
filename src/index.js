@@ -13,16 +13,14 @@ require('./favicon.ico');
 import './styles.scss';
 import 'font-awesome/css/font-awesome.css';
 import 'flexboxgrid/css/flexboxgrid.css';
+import AppProvider from './App.provider';
 
 injectTapEventPlugin();
 
-const store = configureStore();
+//const store = configureStore();
 
 render(
-    <Provider store={store}>
-        <Router routes={routes} history={browserHistory} />
-
-</Provider>, document.getElementById('app')
+   <AppProvider/>, document.getElementById('app')
 );
 
 

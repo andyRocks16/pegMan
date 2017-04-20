@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -46,7 +47,9 @@ class LoginPage extends React.Component {
       // ...
     });
     this.setState({ loadScreen: true });
+    console.log(selectedUser,"user logged in")
     this.props.getUser(selectedUser);
+    this.props.change("LOAD");
 
   }
   componentWillMount = () => {
@@ -65,10 +68,6 @@ class LoginPage extends React.Component {
       }
     })
     this.Listener();
-  }
-
-  allowHeader(){
-    this.props.change("LOAD");
   }
 
   render() {
@@ -98,14 +97,14 @@ class LoginPage extends React.Component {
 
                   <div className="form-group">
                     <div className="form-group">
-                      <select className="form-control" id="traderNameList">
+                      <select ref="selectedTrader" className="form-control" id="traderNameList">
                         {users}
                       </select>
                     </div>
 
                   </div>
                   <Link to={`/dashboard`}>
-                    <input type="submit" value="Login" onClick={this.allowHeader.bind(this)} className="girisbtn" tabindex="100" />
+                    <input type="submit" value="Login" onClick={this.loginClicked.bind(this)} className="girisbtn" tabindex="100" />
                   </Link>
                 </form>
 

@@ -19,27 +19,24 @@ export default class PopUpComponent extends React.Component {
     }
 
     createOrder() {
-        //var cookies=cookie.load('userDetails');
-       
-        var number = ReactDOM.findDOMNode(this.refs.tradeInput).value;
+        var number = this.refs.tradeInput.input.value;
+        console.log(this.refs.tradeInput.input.value, "taeraenfadfkadmfkf")
         for (let i = 0; i < number; i++) {
             var index = Math.floor(Math.random() * 20);
             var side = Math.floor(Math.random() * 2);
             var s;
             if (side == 1) s = "BUY";
             else s = "SELL";
-            console.log(this.props,'atank');
             var stock = this.props.stocks[i];
             var orderData = {
                 symbol: stock.symbol,
                 side: s,
                 quantity: Math.floor(Math.random() * 100),
                 limitPrice: stock.lastTrade - 1,
-                traderId: cookies.id
+                traderId: this.props.loginId.id
             }
-            
-            
-            this.props.makeOrders(orderUrl, orderData)
+            this.props.makeOrders(orderUrl, orderData);
+            this.handleClose();
         }
 
         // console.log(responseOrder)
@@ -50,18 +47,16 @@ export default class PopUpComponent extends React.Component {
     };
 
     render() {
-        console.log(this.props,"now props")
         const actions = [
                       <FlatButton
                         label="Cancel"
                         primary={true}
-                        onTouchTap={this.handleClose}
+                        onTouchTap={this.handleClose.bind(this)}
                       />,
                       <FlatButton
                         label="Submit"
                         primary={true}
-                        disabled={true}
-                        onClick={this.createOrder}
+                        onClick={this.createOrder.bind(this)}
                       />,
                         ];
         return (
@@ -76,6 +71,8 @@ export default class PopUpComponent extends React.Component {
                           >
                           <TextField
                             hintText="Hint Text"
+                            ref = "tradeInput"
+                            type = "number"
                             floatingLabelText="Enter the nmber of orders"
                             floatingLabelFixed={false}
                           />
@@ -85,28 +82,3 @@ export default class PopUpComponent extends React.Component {
     }
 
 }
-
- //<div id="myModal" className="modal fade" role="dialog">
- //               <div className="modal-dialog">
-
-
- //                   <div className="modal-content">
- //                       <div className="modal-header">
- //                           <button type="button" className="close" data-dismiss="modal">&times;</button>
- //                           <h4 className="modal-title">Create Multiple Trades</h4>
- //                       </div>
- //                       <div className="modal-body">
- //                           <div className="form-group">
- //                               <label htmlFor="trades">Enter Number of Trades</label>
- //                               <input ref="tradeInput" type="number" className="form-control" id="trades" />
- //                           </div>
-
- //                       </div>
- //                       <div className="modal-footer">
- //                           <button type="button" className="btn btn-default" onClick={this.createOrder.bind(this)} data-dismiss="modal">Create</button>
- //                           <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
- //                       </div>
- //                   </div>
-
- //               </div>
- //           </div>

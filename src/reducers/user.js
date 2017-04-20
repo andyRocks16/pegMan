@@ -32,8 +32,9 @@ export function users(state = [], action) {
 export function loginId(state = {}, action) {
     switch (action.type) {
         case 'USERS_LOGIN_ID_SUCCESS':
-            console.log(action);
             return action.user;
+         case 'USERS_LOGOUT_ID_SUCCESS':
+            return [];
         default:
             return state;
     }

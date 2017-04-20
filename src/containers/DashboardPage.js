@@ -29,7 +29,6 @@ export default class DashboardPage extends React.Component {
 		this.props.fetchData("http://localhost:8080/orders");
 	}
 	handleOpen = () => {
-        console.log('inside open')
         this.props.openModal(true);
 	};
   render() {

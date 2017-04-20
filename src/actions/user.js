@@ -58,3 +58,9 @@ export function UsersLoginId(user){
         dispatch(userIdUpdate(user))
     }
 }
+
+export function RemoveUser(){
+    return{
+        type: 'USERS_LOGOUT_ID_SUCCESS'
+    }
+}
