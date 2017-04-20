@@ -3,7 +3,7 @@ import {persistStore, autoRehydrate} from 'redux-persist'
 import thunk from 'redux-thunk';
 import { connect } from 'react-redux';
 import rootReducer from '../reducers/index';
-import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, change, searchItems, updateSearch, notify,success,openModal } from '../actions/items';
+import { itemsFetchData,stockFetchData,orderPostData, deleteOrders, updateOrder,orderPlaceDataSuccess, warning, info, change, searchItems, updateSearch, notify,success,openModal } from '../actions/items';
 import {usersFetchData,UsersLoginId, RemoveUser} from '../actions/user';
 import App  from '../containers/App';
 import '../styles/css/style.css';
@@ -48,7 +48,9 @@ const mapDispatchToProps = (dispatch) => {
         updateSearch: (newOrder, searchResults) => dispatch(updateSearch(newOrder, searchResults)),        
         searchOrders: (key, criteria, items) => dispatch(searchItems(key, criteria, items)),
         notify: (notificationMsg, notifications) => dispatch(notify(notificationMsg, notifications)),
-        success: (opts) => dispatch(success(opts)),                                                      
+        success: (opts) => dispatch(success(opts)),
+        info: (opts) => dispatch(info(opts)),
+        warning: (opts) => dispatch(warning(opts)),                                                      
         deleteOrder: (url) => dispatch(deleteOrders(url)), 
         change: (type) => dispatch(change(type)), 
         updateOrder: (msg, orders, newOrder) => {
