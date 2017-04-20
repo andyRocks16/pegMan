@@ -35,6 +35,8 @@ class TablePage extends React.Component {
       this.setState({ loadItems: false })
     }
   }
+  handleOpen(){this.props.openModal(true)}
+
 
   render() {
     let data;
@@ -63,12 +65,11 @@ class TablePage extends React.Component {
         <h3>click <Link to="/"><a href="">here</a></Link></h3>
       </div>)
     }
-
     return (
       <PageBase title="Orders">
         <div>
           
-          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick = {this.props.openModal(true)}>
+          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick = {this.handleOpen.bind(this)}>
             <ContentAdd/>
           </FloatingActionButton>
         <PopUpComponent {...this.props}/>
