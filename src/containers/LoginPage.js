@@ -54,7 +54,7 @@ class LoginPage extends React.Component {
   }
   componentWillMount = () => {
     this.Listener = firebaseAuth().onAuthStateChanged((user) => {
-
+       this.props.change("NOT_LOAD");
       if (user) {
         this.setState({
           authed: true,
