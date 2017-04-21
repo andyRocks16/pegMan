@@ -318,3 +318,9 @@ tr {
 #sel1{
     margin-top : 19px;
 }
+.react-bs-table-pagination div div{
+    width:98%;
+}
+.my-header-class{
+    background-color:pink !important;
+}
