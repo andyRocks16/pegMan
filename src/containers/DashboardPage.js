@@ -28,10 +28,10 @@ export default class DashboardPage extends React.Component {
   refershOrders() {
     this.props.fetchData("http://localhost:8080/orders");
   }
-  handleOpen = () => {
+  handleOpen(){
     this.props.openModal(true);
   };
-dialogueOpen = () => {
+dialogueOpen(){
   console.log('inside dialogue open')
   this.props.openDialogue(true);
 };

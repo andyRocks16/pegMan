@@ -33,7 +33,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount(){
     this.props.fetchData('http://localhost:8080/orders');
   }
 

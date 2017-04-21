@@ -42,7 +42,7 @@ export default class PopUpComponent extends React.Component {
         // console.log(responseOrder)
         // this.props.storeOrders(responseOrder);
     }
-    handleClose = () => {
+    handleClose(){
         this.props.openModal(false);
     };
 

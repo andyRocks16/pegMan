@@ -15,11 +15,11 @@ import ThemeDefault from '../theme-default';
 
 class LoginPage extends React.Component {
 
-  componentDidMount = () => {
+  componentDidMount(){
     this.props.fetchTraders('http://localhost:8080/users');
   }
 
-  loginClicked = () => {
+  loginClicked(){
     var id = ReactDOM.findDOMNode(this.refs.selectedTrader).value;
     var selectedUser;
     for (let user of this.props.users) {
@@ -50,7 +50,7 @@ class LoginPage extends React.Component {
     this.props.change("LOAD");
 
   }
-  componentWillMount = () => {
+  componentWillMount(){
     this.props.getUser(null);
     console.log(this.props)
     this.props.change("NOT_LOAD");

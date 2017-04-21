@@ -18,7 +18,6 @@ export default (
       <Router path="chart" component={ChartPage} />
       <Router path="table" component={TablePage} />
       <Router path="create" component={PopUpComponent} />
-      <Router path="*" component={NotFoundPage} />
     </Router>
   </Router>
 );
