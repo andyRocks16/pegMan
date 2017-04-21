@@ -50,7 +50,6 @@ class OrderDetails extends React.Component {
         <MenuItem>View</MenuItem>
       </IconMenu>
     );
-    console.log(this.props, 'aklfhashfa');
     return (
       <Paper settings={paperSettings}>
         <List>

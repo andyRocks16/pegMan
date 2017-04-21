@@ -8,7 +8,6 @@ class InfoBox extends React.Component {
     super(props)
   }
   deleteAllOrders() {
-    console.log("in delter");
 		this.props.deleteOrder("http://localhost:8080/orders")
 	}
 

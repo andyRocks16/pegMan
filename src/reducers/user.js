@@ -21,8 +21,6 @@ export function usersIsLoading(state = false, action) {
 export function users(state = [], action) {
     switch (action.type) {
         case 'USERS_FETCH_DATA_SUCCESS':
-            console.log("inside Reducer");
-            console.log(action);
             return action.users;
         default:
             return state;

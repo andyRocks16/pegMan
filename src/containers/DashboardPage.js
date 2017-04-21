@@ -89,7 +89,7 @@ dialogueOpen = () => {
 
         <div className="row">
 
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 animate">
             <Link to={`/table`}>
               <OrderDetails {...this.props} />
             </Link>
@@ -97,7 +97,7 @@ dialogueOpen = () => {
 
 
 
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 animate">
             <Link to={`/chart`}>
               <BrowserUsage data={Data.dashBoardPage.browserUsage} />
             </Link>
