@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -20,7 +22,7 @@ class LoginPage extends React.Component {
     this.props.fetchTraders(userUrl);
   }
 
-  loginClicked(){
+  loginClicked() {
     var id = ReactDOM.findDOMNode(this.refs.selectedTrader).value;
     var selectedUser;
     for (let user of this.props.users) {
@@ -51,7 +53,7 @@ class LoginPage extends React.Component {
     this.props.change("LOAD");
 
   }
-  componentWillMount(){
+  componentWillMount() {
     this.props.getUser(null);
     console.log(this.props)
     this.props.change("NOT_LOAD");
@@ -79,42 +81,39 @@ class LoginPage extends React.Component {
       )
     });
 
-    return (
-      <div>
-        <div id="fback">
-          <div className="girisback"></div>
-          <div className="kayitback"></div>
+
+    return (<div>
+    <div id ="fback"className="col-md-12 hidden-xs">
+        <div className="kayitback">
+          
         </div>
+      </div>
 
-        <div id="textbox">
-          <div className="toplam">
+      <div id="textbox" className="col-md-12">
+        <div className="toplam">
+          <div className="right">
+            <div id="ic">
+              <h2>Login</h2>
+              <form name="login-form" id="girisyap sidebar-user-login" method="post" onsubmit="return false;">
 
-
-
-            <div className="right">
-              <div id="ic">
-                <h2>Login</h2>
-                <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled.</p>
-                <form name="login-form" id="girisyap sidebar-user-login" method="post" onsubmit="return false;">
-
+                <div className="form-group">
                   <div className="form-group">
-                    <div className="form-group">
-                      <select ref="selectedTrader" className="form-control" id="traderNameList">
-                        {users}
-                      </select>
-                    </div>
-
+                    <select ref="selectedTrader" className="form-control" id="traderNameList">
+                      {users}
+                    </select>
                   </div>
-                  <Link to={`/dashboard`}>
-                    <input type="submit" value="Login" onClick={this.loginClicked.bind(this)} className="girisbtn" tabindex="100" />
-                  </Link>
-                </form>
 
-              </div>
+                </div>
+                <Link to={`/dashboard`}>
+                  <input type="submit" value="Login" onClick={this.loginClicked.bind(this)} className="girisbtn" tabindex="100" />
+                </Link>
+              </form>
+
             </div>
-
           </div>
+
         </div>
+      </div>
       </div>
 
     );
