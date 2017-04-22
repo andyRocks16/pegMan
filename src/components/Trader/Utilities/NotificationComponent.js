@@ -28,7 +28,7 @@ export class NotificationComponent extends React.Component {
         const {notifications} = this.props;
 
         return (
-          <div>
+          <div className="hi">
             <Notifications notifications={notifications} />
           </div>
     );
