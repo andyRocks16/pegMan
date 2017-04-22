@@ -120,7 +120,9 @@ button:focus {
     background: black;
     filter: invert(100%);
 }
-
+.tableCont{
+        padding:0px !important;
+}
 @media screen and (max-device-width : 320px) {
     .tableFunctionality {
         font-size: 10px;
@@ -131,6 +133,23 @@ button:focus {
     }
 }
 
+@media screen and (max-width : 390px) {
+    .padTablePage >div >div{
+    padding:15px !important;
+    width:103%;
+}
+    .padTablePage >div >div h3{
+        text-align:center;
+    }
+    
+}
+
+@media screen and (max-width : 500px) {
+    
+    table{
+        font-size:10px;
+    }
+}
 @media screen and (min-device-width: 330px) and (max-device-width : 414px) {
     .navbar .nav-pills {
         font-size: 15px;

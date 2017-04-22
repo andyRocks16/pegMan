@@ -14,7 +14,7 @@ import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
 import Data from '../data';
 import { BootstrapTable } from 'react-bootstrap-table'
 import css from 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
-
+import moment from 'moment';
 
 class TablePage extends React.Component {
   constructor(props) {
@@ -78,7 +78,14 @@ class TablePage extends React.Component {
       </div>
     );
   }
-
+  dateFormatter(cell, row) {
+      console.log('pika')
+      return moment(cell).format('DD-MM-YY HH:mm:ss');
+  }
+  numFormatter(cell, row) {
+      console.log('pikapika')
+      return parseInt(cell);
+  }
 
   render() {
     var data = [];
@@ -219,8 +226,8 @@ class TablePage extends React.Component {
         changeIcon.push(<ContentClear />)
     }
     return (
-      <PageBase title="Orders">
-        <div>
+      <PageBase title="Orders" >
+        <div >
 
         <PopUpComponent {...this.props}/>
           <form>
@@ -241,7 +248,7 @@ class TablePage extends React.Component {
             </div>
 
           </form>
-          < div className="col-md-12 hidden-xs  hidden-sm">
+          < div className="tableCont col-md-12 hidden-xs  hidden-sm">
             <BootstrapTable data={data} options={options} pagination={true} striped tableHeaderClass='my-header-class'>
 
               <TableHeaderColumn dataField='id' isKey={true} dataSort width='48'>ID</TableHeaderColumn>
@@ -251,36 +258,36 @@ class TablePage extends React.Component {
               <TableHeaderColumn dataField='quantity' dataSort >Quantity</TableHeaderColumn>
               <TableHeaderColumn dataField='quantityPlaced' dataSort >Placed</TableHeaderColumn>
               <TableHeaderColumn dataField='quantityExecuted' dataSort >Executed</TableHeaderColumn>
-              <TableHeaderColumn dataField='limitPrice' dataSort >Limit Price</TableHeaderColumn>
-              <TableHeaderColumn dataField='priority' dataSort >Priority</TableHeaderColumn>
+              <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
+              <TableHeaderColumn dataField='priority'  width='68' >Priority</TableHeaderColumn>
               <TableHeaderColumn dataField='status' dataSort >Status</TableHeaderColumn>
               <TableHeaderColumn dataField='traderId' dataSort >Trader</TableHeaderColumn>
             </BootstrapTable>
           </div>
 
-          < div className="col-sm-12 hidden-md hidden-lg  hidden-xs">
+          < div className="tableCont col-sm-12 hidden-md hidden-lg  hidden-xs">
             <BootstrapTable data={data} options={options} pagination={true} hover>
-              <TableHeaderColumn dataField='id' isKey={true} dataSort width='48'>ID</TableHeaderColumn>
-              <TableHeaderColumn dataField='creationTime' width='140' dataSort >Time</TableHeaderColumn>
+              <TableHeaderColumn dataField='id' isKey={true} dataSort width='48' >ID</TableHeaderColumn>
+              <TableHeaderColumn dataField='creationTime' width='80' dataSort >Time</TableHeaderColumn>
               <TableHeaderColumn dataField='side' dataSort >Side</TableHeaderColumn>
               <TableHeaderColumn dataField='symbol' dataSort >Symbol</TableHeaderColumn>
               <TableHeaderColumn dataField='quantity' dataSort >Quantity</TableHeaderColumn>
               <TableHeaderColumn dataField='quantityPlaced' dataSort >Placed</TableHeaderColumn>
               <TableHeaderColumn dataField='quantityExecuted' dataSort >Executed</TableHeaderColumn>
-              <TableHeaderColumn dataField='limitPrice' dataSort >Limit Price</TableHeaderColumn>
+              <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
               <TableHeaderColumn dataField='status' dataSort >Status</TableHeaderColumn>
             </BootstrapTable>
           </div>
 
-          < div className="col-xs-12 hidden-md hidden-lg  hidden-sm">
+          < div className="tableCont col-xs-12 hidden-md hidden-lg  hidden-sm">
 
             <BootstrapTable data={data} options={options} pagination={true} selectRow={selectRowProp}
             expandableRow={(row) => { return true; }} expandComponent={this.expandComponent} hover >
             <TableHeaderColumn dataField='id' isKey={true} dataSort width='48'>ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='side' dataSort width='70'>Side</TableHeaderColumn>
+            <TableHeaderColumn dataField='side' dataSort>Side</TableHeaderColumn>
             <TableHeaderColumn dataField='symbol' dataSort >Symbol</TableHeaderColumn>
             <TableHeaderColumn dataField='quantity' dataSort >Quantity</TableHeaderColumn>
-            <TableHeaderColumn dataField='limitPrice' dataSort >Limit Price</TableHeaderColumn>
+            <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
           </BootstrapTable>
         </div>
         <div className={this.state.showDiv?'':'hidden'}>

@@ -226,10 +226,15 @@ export function orders(state = [], action) {
 export function notificationMsg(state = [], action) {
     switch (action.type) {
         case "NOTIFY_USER":
-            return [
+            let newNotifications = [];
+            if(action.notifications.length > 15)
+                newNotifications = [action.notificationMsg];
+            else
+                newNotifications = [
                 ...action.notifications,
                 action.notificationMsg
             ];
+            return newNotifications;
         default:
             return state;
     }

@@ -3,6 +3,14 @@ import { Link } from 'react-router';
 import { grey400 } from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 import { WindowResizeListener } from 'react-window-resize-listener';
+import ContentCreate from 'material-ui/svg-icons/content/create';
+import ContentDelete from 'material-ui/svg-icons/content/delete-sweep';
+import ContentRefresh from 'material-ui/svg-icons/action/autorenew';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import ContentClear from 'material-ui/svg-icons/content/clear';
+import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import { pink500, grey200, grey500 } from 'material-ui/styles/colors';
 
 var Legend = require('react-d3-core').Legend;
 var BarStackChart = require('react-d3-basic').BarStackChart;
@@ -12,8 +20,16 @@ class ChartPage extends React.Component {
   constructor(props) {
     super(props);
     this.p;
+    this.state = {
+      showDiv: false
+    }
   }
-
+  
+   handleOpen() { this.props.openModal(true) }
+  handleOpenDiv() { var a=this.state.showDiv;
+      this.setState({showDiv:!a}) }
+  handleDelete(){this.props.deleteOrder("http://localhost:8080/orders")}
+  handleRefresh(){this.props.fetchData("http://localhost:8080/orders");}
   changeWidth(size) {
     console.log(size);
     var innerWidth = size.windowWidth;
@@ -43,7 +59,43 @@ class ChartPage extends React.Component {
       },
       saveButton: {
         marginLeft: 5
-      }
+      },
+        floatingActionButton: {
+            margin: 0,
+            top: 'auto',
+            right: 20,
+            bottom: 20,
+            left: 'auto',
+            position: 'fixed',
+            zindex:1
+        },
+        floatingActionButton1: {
+            margin: 0,
+            top: 'auto',
+            right: 28,
+            bottom: 90,
+            left: 'auto',
+            position: 'fixed',
+            zindex:1
+        },
+        floatingActionButton2: {
+            margin: 0,
+            top: 'auto',
+            right: 28,
+            bottom: 150,
+            left: 'auto',
+            position: 'fixed',
+            zindex:1
+        },
+        floatingActionButton3: {
+            margin: 0,
+            top: 'auto',
+            right: 28,
+            bottom: 210,
+            left: 'auto',
+            position: 'fixed',
+            zindex:1
+        }
     };
 
     var item = this.props.items;
@@ -107,6 +159,7 @@ class ChartPage extends React.Component {
       legendOffset = 90;
 
 
+      
 
     var widthLg = 300;
     console.log(window.innerWidth);
@@ -118,7 +171,7 @@ class ChartPage extends React.Component {
     }
     width = this.p;
 
-    
+
     if (typeof this.props.loginId.id == "undefined") {
       return (<div>
         <h1>PLEASE LOGIN</h1>
@@ -126,11 +179,22 @@ class ChartPage extends React.Component {
         <h3>click <Link to="/"><a href="">here</a></Link></h3>
       </div>)
     }
-    
+
+    let changeIcon = [];
+    if (this.state.showDiv === false) {
+      changeIcon.length = 0;
+      changeIcon.push(<ContentAdd />)
+    }
+    else {
+      changeIcon.length = 0;
+      changeIcon.push(<ContentClear />)
+    }
+
     return (
       <PageBase title="Chart Page"
         navigation="Application / Chart Page">
         <div>
+          <PopUpComponent {...this.props}/>
           <div className="col-xs-5 col-xs-offset-5  hidden-md hidden-lg hidden-xl ">
             <Legend width={widthLg} height={height} legendClassName={legendClassName} legendPosition={legendPosition}
               legendOffset={legendOffset}
@@ -154,8 +218,20 @@ class ChartPage extends React.Component {
               legendOffset={legendOffset} xTicks={xTicks}
               chartSeries={chartSeries} />
           </div>
-
-
+          <div className={this.state.showDiv ? '' : 'hidden'}>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton1} backgroundColor={pink500} onClick={this.handleRefresh.bind(this)}>
+              <ContentRefresh />
+            </FloatingActionButton>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton2} backgroundColor={pink500} onClick={this.handleDelete.bind(this)}>
+              <ContentDelete />
+            </FloatingActionButton>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton3} backgroundColor={pink500} onClick={this.handleOpen.bind(this)}>
+              <ContentCreate />
+            </FloatingActionButton>
+          </div>
+          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick={this.handleOpenDiv.bind(this)}>
+            {changeIcon}
+          </FloatingActionButton>
         </div>
       </PageBase>
     );
