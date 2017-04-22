@@ -2,17 +2,18 @@ import React, {PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
 import {white, grey800} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
+import {orderUrl} from '../../app.config';
 
 class InfoBox extends React.Component {
   constructor(props){
     super(props)
   }
   deleteAllOrders() {
-		this.props.deleteOrder("http://localhost:8080/orders")
+		this.props.deleteOrder(orderUrl)
 	}
 
 	refershOrders() {
-		this.props.fetchData("http://localhost:8080/orders");
+		this.props.fetchData(orderUrl);
 	}
   render() {
 

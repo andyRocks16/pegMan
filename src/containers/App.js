@@ -7,7 +7,7 @@ import ThemeDefault from '../theme-default';
 import Data from '../data';
 import Notifications from 'react-notification-system-redux';
 import { NotificationComponent } from '../components/Trader/Utilities/NotificationComponent';
-
+import {orderUrl, websocketUrl} from '../app.config';
 import Badge from 'material-ui/Badge';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import Websocket from 'react-websocket';
@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchData('http://localhost:8080/orders');
+    this.props.fetchData(orderUrl);
   }
 
   handleChangeRequestNavDrawer() {
@@ -163,7 +163,7 @@ class App extends React.Component {
           }
         </MuiThemeProvider>
 
-        <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
+        <Websocket url={websocketUrl}
           onMessage={this.handleData.bind(this)} />
         {notification}
       </div>

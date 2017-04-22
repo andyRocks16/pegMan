@@ -12,23 +12,24 @@ import { pink500, grey200, grey500 } from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
 import Data from '../data';
-import { BootstrapTable } from 'react-bootstrap-table'
-import css from 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
+import { BootstrapTable } from 'react-bootstrap-table';
+import { orderUrl } from '../app.config';
+import css from 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import moment from 'moment';
 
 class TablePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        loadItems: true,
-        showDiv:false
+      loadItems: true,
+      showDiv: false
     }
   }
 
   componentWillMount() {
+    this.setState({ showDiv: false })
     this.setState({ loadItems: true });
     this.props.openModal(false);
-    this.setState({showDiv:false}) ;
   }
 
   searchItems(event) {
@@ -44,10 +45,12 @@ class TablePage extends React.Component {
     }
   }
   handleOpen() { this.props.openModal(true) }
-  handleOpenDiv() { var a=this.state.showDiv;
-      this.setState({showDiv:!a}) }
-  handleDelete(){this.props.deleteOrder("http://localhost:8080/orders")}
-  handleRefresh(){this.props.fetchData("http://localhost:8080/orders");}
+  handleOpenDiv() {
+    var a = this.state.showDiv;
+    this.setState({ showDiv: !a })
+  }
+  handleDelete() { this.props.deleteOrder(orderUrl) }
+  handleRefresh() { this.props.fetchData(orderUrl); }
 
   expandComponent(row) {
     return (
@@ -79,12 +82,12 @@ class TablePage extends React.Component {
     );
   }
   dateFormatter(cell, row) {
-      console.log('pika')
-      return moment(cell).format('DD-MM-YY HH:mm:ss');
+    console.log('pika')
+    return moment(cell).format('DD-MM-YY HH:mm:ss');
   }
   numFormatter(cell, row) {
-      console.log('pikapika')
-      return parseInt(cell);
+    console.log('pikapika')
+    return parseInt(cell);
   }
 
   render() {
@@ -107,42 +110,42 @@ class TablePage extends React.Component {
       :
       data = this.props.items;
     const styles = {
-        floatingActionButton: {
-            margin: 0,
-            top: 'auto',
-            right: 20,
-            bottom: 20,
-            left: 'auto',
-            position: 'fixed',
-            zindex:1
-        },
-        floatingActionButton1: {
-            margin: 0,
-            top: 'auto',
-            right: 28,
-            bottom: 90,
-            left: 'auto',
-            position: 'fixed',
-            zindex:1
-        },
-        floatingActionButton2: {
-            margin: 0,
-            top: 'auto',
-            right: 28,
-            bottom: 150,
-            left: 'auto',
-            position: 'fixed',
-            zindex:1
-        },
-        floatingActionButton3: {
-            margin: 0,
-            top: 'auto',
-            right: 28,
-            bottom: 210,
-            left: 'auto',
-            position: 'fixed',
-            zindex:1
-        }
+      floatingActionButton: {
+        margin: 0,
+        top: 'auto',
+        right: 20,
+        bottom: 20,
+        left: 'auto',
+        position: 'fixed',
+        zindex: 1
+      },
+      floatingActionButton1: {
+        margin: 0,
+        top: 'auto',
+        right: 28,
+        bottom: 90,
+        left: 'auto',
+        position: 'fixed',
+        zindex: 1
+      },
+      floatingActionButton2: {
+        margin: 0,
+        top: 'auto',
+        right: 28,
+        bottom: 150,
+        left: 'auto',
+        position: 'fixed',
+        zindex: 1
+      },
+      floatingActionButton3: {
+        margin: 0,
+        top: 'auto',
+        right: 28,
+        bottom: 210,
+        left: 'auto',
+        position: 'fixed',
+        zindex: 1
+      }
     };
 
 
@@ -216,20 +219,20 @@ class TablePage extends React.Component {
         </div>
       </PageBase>
     );*/
-    let changeIcon=[];
-    if(this.state.showDiv===false){
-        changeIcon.length=0;
-        changeIcon.push(<ContentAdd />)
+    let changeIcon = [];
+    if (this.state.showDiv === false) {
+      changeIcon.length = 0;
+      changeIcon.push(<ContentAdd />)
     }
-    else{
-        changeIcon.length=0;
-        changeIcon.push(<ContentClear />)
+    else {
+      changeIcon.length = 0;
+      changeIcon.push(<ContentClear />)
     }
     return (
       <PageBase title="Orders" >
         <div >
 
-        <PopUpComponent {...this.props}/>
+          <PopUpComponent {...this.props} />
           <form>
             <div className="form-group col-xs-9 ">
               <input onChange={this.searchItems.bind(this)} type="text" className="form-control" id="search" placeholder="Search...." />
@@ -259,7 +262,7 @@ class TablePage extends React.Component {
               <TableHeaderColumn dataField='quantityPlaced' dataSort >Placed</TableHeaderColumn>
               <TableHeaderColumn dataField='quantityExecuted' dataSort >Executed</TableHeaderColumn>
               <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
-              <TableHeaderColumn dataField='priority'  width='68' >Priority</TableHeaderColumn>
+              <TableHeaderColumn dataField='priority' width='68' >Priority</TableHeaderColumn>
               <TableHeaderColumn dataField='status' dataSort >Status</TableHeaderColumn>
               <TableHeaderColumn dataField='traderId' dataSort >Trader</TableHeaderColumn>
             </BootstrapTable>
@@ -282,31 +285,31 @@ class TablePage extends React.Component {
           < div className="tableCont col-xs-12 hidden-md hidden-lg  hidden-sm">
 
             <BootstrapTable data={data} options={options} pagination={true} selectRow={selectRowProp}
-            expandableRow={(row) => { return true; }} expandComponent={this.expandComponent} hover >
-            <TableHeaderColumn dataField='id' isKey={true} dataSort width='48'>ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='side' dataSort>Side</TableHeaderColumn>
-            <TableHeaderColumn dataField='symbol' dataSort >Symbol</TableHeaderColumn>
-            <TableHeaderColumn dataField='quantity' dataSort >Quantity</TableHeaderColumn>
-            <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
-          </BootstrapTable>
+              expandableRow={(row) => { return true; }} expandComponent={this.expandComponent} hover >
+              <TableHeaderColumn dataField='id' isKey={true} dataSort width='48'>ID</TableHeaderColumn>
+              <TableHeaderColumn dataField='side' dataSort>Side</TableHeaderColumn>
+              <TableHeaderColumn dataField='symbol' dataSort >Symbol</TableHeaderColumn>
+              <TableHeaderColumn dataField='quantity' dataSort >Quantity</TableHeaderColumn>
+              <TableHeaderColumn dataField='limitPrice' dataSort dataFormat={this.numFormatter.bind(this)}>Limit Price</TableHeaderColumn>
+            </BootstrapTable>
+          </div>
+          <div className={this.state.showDiv ? '' : 'hidden'}>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton1} backgroundColor={pink500} onClick={this.handleRefresh.bind(this)}>
+              <ContentRefresh />
+            </FloatingActionButton>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton2} backgroundColor={pink500} onClick={this.handleDelete.bind(this)}>
+              <ContentDelete />
+            </FloatingActionButton>
+            <FloatingActionButton mini={true} style={styles.floatingActionButton3} backgroundColor={pink500} onClick={this.handleOpen.bind(this)}>
+              <ContentCreate />
+            </FloatingActionButton>
+          </div>
+          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick={this.handleOpenDiv.bind(this)}>
+            {changeIcon}
+          </FloatingActionButton>
         </div>
-        <div className={this.state.showDiv?'':'hidden'}>
-        <FloatingActionButton mini={true} style={styles.floatingActionButton1} backgroundColor={pink500} onClick ={this.handleRefresh.bind(this)}>
-          <ContentRefresh />
-        </FloatingActionButton>
-        <FloatingActionButton mini={true} style={styles.floatingActionButton2} backgroundColor={pink500} onClick ={this.handleDelete.bind(this)}>
-          <ContentDelete />
-        </FloatingActionButton>
-        <FloatingActionButton mini={true} style={styles.floatingActionButton3} backgroundColor={pink500} onClick = {this.handleOpen.bind(this)}>
-          <ContentCreate />
-        </FloatingActionButton>
-        </div>
-                 <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500} onClick = {this.handleOpenDiv.bind(this)}>
-          {changeIcon}
-        </FloatingActionButton>
-      </div>
-    </PageBase>
-  )
+      </PageBase>
+    )
   };
 
 }

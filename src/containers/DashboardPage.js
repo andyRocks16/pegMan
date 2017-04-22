@@ -11,6 +11,7 @@ import BrowserUsage from '../components/dashboard/BrowserUsage';
 import OrderDetails from '../components/dashboard/RecentlyProducts';
 import globalStyles from '../styles';
 import Data from '../data';
+import {orderUrl} from '../app.config';
 import { Link } from 'react-router';
 import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
 import Stats from '../components/Trader/Utilities/StatsComponent';
@@ -22,17 +23,16 @@ export default class DashboardPage extends React.Component {
   }
 
   deleteAllOrders() {
-    this.props.deleteOrder("http://localhost:8080/orders")
+    this.props.deleteOrder(orderUrl)
   }
 
   refershOrders() {
-    this.props.fetchData("http://localhost:8080/orders");
+    this.props.fetchData(orderUrl);
   }
   handleOpen(){
     this.props.openModal(true);
   };
 dialogueOpen(){
-  console.log('inside dialogue open')
   this.props.openDialogue(true);
 };
   

@@ -9,6 +9,7 @@ import ContentRefresh from 'material-ui/svg-icons/action/autorenew';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import PopUpComponent from '../components/Trader/Utilities/PopUpComponent';
+import {orderUrl} from '../app.config';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { pink500, grey200, grey500 } from 'material-ui/styles/colors';
 
@@ -28,8 +29,8 @@ class ChartPage extends React.Component {
    handleOpen() { this.props.openModal(true) }
   handleOpenDiv() { var a=this.state.showDiv;
       this.setState({showDiv:!a}) }
-  handleDelete(){this.props.deleteOrder("http://localhost:8080/orders")}
-  handleRefresh(){this.props.fetchData("http://localhost:8080/orders");}
+  handleDelete(){this.props.deleteOrder(orderUrl)}
+  handleRefresh(){this.props.fetchData(orderUrl);}
   changeWidth(size) {
     console.log(size);
     var innerWidth = size.windowWidth;

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import cookie from 'react-cookie';
 import {instrumentsUrl,orderUrl} from '../../../app.config';
-
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';

@@ -11,12 +11,13 @@ import PersonAdd from 'material-ui/svg-icons/social/person-add';
 import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
 import { Link } from 'react-router';
+import {userUrl} from '../app.config';
 import ThemeDefault from '../theme-default';
 
 class LoginPage extends React.Component {
 
   componentDidMount(){
-    this.props.fetchTraders('http://localhost:8080/users');
+    this.props.fetchTraders(userUrl);
   }
 
   loginClicked(){
