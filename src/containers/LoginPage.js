@@ -13,12 +13,12 @@ import PersonAdd from 'material-ui/svg-icons/social/person-add';
 import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
 import { Link } from 'react-router';
-import {userUrl} from '../app.config';
+import { userUrl } from '../app.config';
 import ThemeDefault from '../theme-default';
 
 class LoginPage extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchTraders(userUrl);
   }
 
@@ -83,38 +83,51 @@ class LoginPage extends React.Component {
 
 
     return (<div>
-    <div id ="fback"className="col-md-12 hidden-xs">
+      <div id="fback" className="col-md-12 hidden-xs">
         <div className="kayitback">
-          
+
         </div>
       </div>
 
       <div id="textbox" className="col-md-12">
         <div className="toplam">
           <div className="right">
-            <div id="ic">
-              <h2>Login</h2>
-              <form name="login-form" id="girisyap sidebar-user-login" method="post" onsubmit="return false;">
+            <div className="inerdiv">
+              <center>
+                <img src="https://www.sapientglobalmarkets.com/images/sgm-logo-large.png" height="50" width="40" />
+              </center>
+              <center>
+                <h2>Powered by Sapient</h2>
+              </center>
+              <center>
+                <div id="ic">
 
-                <div className="form-group">
-                  <div className="form-group">
-                    <select ref="selectedTrader" className="form-control" id="traderNameList">
-                      {users}
-                    </select>
-                  </div>
+                  <h2>Welcome to Traders Desktop</h2>
+
+                  <p>The markets are unforgiving, and smart trading always results in profits.</p>
+                  <form name="login-form" id="girisyap sidebar-user-login" method="post" onsubmit="return false;">
+
+                    <div className="form-group">
+                      <div className="form-group">
+                        <select ref="selectedTrader" className="form-control" id="traderNameList">
+                          {users}
+                        </select>
+                      </div>
+
+                    </div>
+                    <Link to={`/dashboard`}>
+                      <input type="submit" value="Login" onClick={this.loginClicked.bind(this)} className="girisbtn" tabindex="100" />
+                    </Link>
+                  </form>
 
                 </div>
-                <Link to={`/dashboard`}>
-                  <input type="submit" value="Login" onClick={this.loginClicked.bind(this)} className="girisbtn" tabindex="100" />
-                </Link>
-              </form>
-
+              </center>
             </div>
           </div>
 
         </div>
       </div>
-      </div>
+    </div>
 
     );
   }
