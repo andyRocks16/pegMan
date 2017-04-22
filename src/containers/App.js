@@ -76,8 +76,8 @@ class App extends React.Component {
           // uid: 'once-please', // you can specify your own uid if required
           title: 'Order Placed',
           message: notificationMsg,
-          position: 'tr',
-          autoDismiss: 3,
+          position: 'bl',
+          autoDismiss: 0,
           // action: {
           //     label: 'Click me!!',
           //     callback: () => alert('clicked!')
@@ -92,8 +92,8 @@ class App extends React.Component {
           // uid: 'once-please', // you can specify your own uid if required
           title: 'Order Executed',
           message: notificationMsg,
-          position: 'tr',
-          autoDismiss: 3,
+          position: 'bl',
+          autoDismiss: 0,
           // action: {
           //     label: 'Click me!!',
           //     callback: () => alert('clicked!')
@@ -108,8 +108,8 @@ class App extends React.Component {
         // uid: 'once-please', // you can specify your own uid if required
         title: 'Order Created',
         message: notificationMsg,
-        position: 'tr',
-        autoDismiss: 3,
+        position: 'bl',
+        autoDismiss: 0,
         // action: {
         //     label: 'Click me!!',
         //     callback: () => alert('clicked!')
