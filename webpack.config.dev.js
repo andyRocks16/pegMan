@@ -26,10 +26,6 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
       inject: true
     })
   ],

@@ -10,7 +10,7 @@ import { grey500, white } from 'material-ui/styles/colors';
 import PersonAdd from 'material-ui/svg-icons/social/person-add';
 import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
 import ThemeDefault from '../theme-default';
 
 class LoginPage extends React.Component {
@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
     firebaseAuth().signInWithEmailAndPassword(email, password + "@123").then(function (user) {
 
       users = user;
-      browserHistory.push('/');
+      hashHistory.push('/');
     }).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;

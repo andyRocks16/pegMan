@@ -153,7 +153,7 @@ class App extends React.Component {
                 menus={Data.menus}
                 username="User Admin" {...this.props} />
 
-              <div style={styles.container}>
+              <div style={styles.container} className="padTablePage">
                 {React.cloneElement(this.props.children, this.props)}
               </div>
             </div> :
