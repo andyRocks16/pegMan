@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, hashHistory,browserHistory, IndexRoute,Route } from 'react-router';
+import { Router, browserHistory, IndexRoute,Route } from 'react-router';
 import routes from './routes';
 import LoginPage from './containers/LoginPage';
 import injectTapEventPlugin from 'react-tap-event-plugin';
