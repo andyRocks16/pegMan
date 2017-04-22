@@ -181,6 +181,14 @@ class ChartPage extends React.Component {
       </div>)
     }
 
+    if (typeof this.props.items == "undefined") {
+      return (
+        <PageBase title="Chart Page"
+        navigation="Application / Chart Page">
+        <h1>No Orders Yet!!</h1>
+        </PageBase>)
+    }
+
     let changeIcon = [];
     if (this.state.showDiv === false) {
       changeIcon.length = 0;

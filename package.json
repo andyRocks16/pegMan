@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "expect": "1.20.2",
     "firebase": "3.8.0",
     "flexboxgrid": "6.3.1",
     "font-awesome": "4.7.0",
@@ -33,6 +34,7 @@
     "material-ui": "0.17.0",
     "material-ui-fullscreen-dialog": "0.3.1",
     "moment": "^2.18.1",
+    "nock": "9.0.13",
     "npm": "^4.4.4",
     "react": "^15.5.3",
     "react-addons-css-transition-group": "^15.5.1",
@@ -59,6 +61,7 @@
     "reactstrap": "^4.5.0",
     "recharts": "0.20.8",
     "redux": "^3.6.0",
+    "redux-mock-store": "1.2.3",
     "redux-persist": "4.6.0",
     "redux-thunk": "^2.1.0",
     "socket.io": "^1.7.3"
