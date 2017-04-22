@@ -77,7 +77,7 @@ class App extends React.Component {
           title: 'Order Placed',
           message: notificationMsg,
           position: 'bl',
-          autoDismiss: 0,
+          autoDismiss: 3,
           // action: {
           //     label: 'Click me!!',
           //     callback: () => alert('clicked!')
@@ -93,7 +93,7 @@ class App extends React.Component {
           title: 'Order Executed',
           message: notificationMsg,
           position: 'bl',
-          autoDismiss: 0,
+          autoDismiss: 3,
           // action: {
           //     label: 'Click me!!',
           //     callback: () => alert('clicked!')
@@ -109,7 +109,7 @@ class App extends React.Component {
         title: 'Order Created',
         message: notificationMsg,
         position: 'bl',
-        autoDismiss: 0,
+        autoDismiss: 3,
         // action: {
         //     label: 'Click me!!',
         //     callback: () => alert('clicked!')
