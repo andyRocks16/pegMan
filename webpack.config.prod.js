@@ -31,23 +31,10 @@ export default {
 
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      },
       inject: true
     }),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.DedupePlugin()
 
-    new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [

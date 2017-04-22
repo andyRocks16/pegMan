@@ -54,7 +54,8 @@ export function loadHeader(state = false, action) {
 
 export function notifications(state = [], action = {}) {
   switch(action.type) {
-    case "RNS_SHOW_NOTIFICATION":
+      case "RNS_SHOW_NOTIFICATION":
+
       const { type, ...rest } = action;
       return [
         ...state,
